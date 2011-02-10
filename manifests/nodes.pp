@@ -6,5 +6,6 @@ node "basenode" {
 }
 
 node "vagrantup" {
+  include memcached
   include nagios::server
 }
