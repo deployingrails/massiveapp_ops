@@ -5,6 +5,6 @@ node "basenode" {
   }
 }
 
-node "vagrant" {
+node "vagrantup" {
   include nagios
 }
