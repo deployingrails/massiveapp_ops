@@ -6,5 +6,5 @@ node "basenode" {
 }
 
 node "vagrantup" {
-  include nagios
+  include nagios::server
 }
