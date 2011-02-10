@@ -16,7 +16,13 @@ class nagios::server {
       owner   => root,
       group   => root,
       mode    => 644,
-      require => [Package["apache2"],Package["nagios3"]]
+      require => [Package["apache2"],Package["nagios3"]];
+    "/etc/nagios3/htpasswd.users":
+      source  => "puppet:///modules/nagios/htpasswd.users",
+      owner   => www-data,
+      group   => www-data,
+      mode    => 640,
+      require => [Package["apache2"],Package["nagios3"]];
   }
 
   service {
