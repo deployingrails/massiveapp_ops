@@ -31,7 +31,8 @@ class nagios::server {
       hasrestart  => true,
       enable      => true,
       hasstatus   => true,
-      subscribe   => File["/etc/nagios3"]
+      subscribe   => File["/etc/nagios3"],
+      require     => Package["nagios3"]
   }
 }
 
