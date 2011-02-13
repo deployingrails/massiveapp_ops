@@ -11,6 +11,12 @@ class nagios::server {
       group   => root,
       mode    => 755,
       require => Package["nagios3"];
+    "/etc/nagios3/conf.d/hosts/":
+      ensure  => directory,
+      owner   => root,
+      group   => root,
+      mode    => 755,
+      require => File["/etc/nagios3"];
     "/etc/nagios3/apache2.conf":
       source  => "puppet:///modules/nagios/apache2.conf",
       owner   => root,
@@ -34,5 +40,6 @@ class nagios::server {
       subscribe   => File["/etc/nagios3"],
       require     => Package["nagios3"]
   }
+
 }
 
