@@ -33,6 +33,13 @@ class nagios::server {
       group   => nagios,
       mode    => 640,
       require => [Package["apache2"],Package["nagios3"]];
+    "/etc/nagios3/nagios.cfg":
+      source  => "puppet:///modules/nagios/nagios.cfg",
+      owner   => nagios,
+      group   => nagios,
+      mode    => 644,
+      notify  => Service["nagios3"],
+      require => [Package["apache2"],Package["nagios3"]];
   }
 
   service {
