@@ -19,7 +19,7 @@ class nagios::server {
       mode    => 0644,
       recurse => true,
       notify  => Service["nagios3"],
-      require => [Package["apache2"],Package["nagios3"]];
+      require => Package["nagios3"];
     "/etc/nagios3/apache2.conf":
       source  => "puppet:///modules/nagios/apache2.conf",
       owner   => root,
@@ -40,6 +40,12 @@ class nagios::server {
       mode    => 644,
       notify  => Service["nagios3"],
       require => [Package["apache2"],Package["nagios3"]];
+    "/var/lib/nagios3/rw":
+      ensure  => directory,
+      owner   => nagios,
+      group   => www-data,
+      mode    => 710,
+      require => Package["nagios3"];
   }
 
   service {
