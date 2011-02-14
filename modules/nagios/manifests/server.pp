@@ -1,7 +1,13 @@
 class nagios::server {
+
   package {
     ["nagios3","nagios3-cgi","nagios3-common","nagios3-core","nagios3-doc"]:
       ensure => present
+  }
+
+  user {
+    "www-data":
+      groups => "nagios"
   }
 
   file {
