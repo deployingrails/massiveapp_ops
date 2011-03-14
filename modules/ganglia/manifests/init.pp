@@ -18,6 +18,12 @@ class ganglia {
       target  => "/etc/ganglia-webfrontend/apache.conf",
       require => File["/etc/ganglia-webfrontend/apache.conf"],
       notify  => Service["apache2"];
+    "/etc/ganglia/gmond.conf":
+      source  => "puppet:///modules/ganglia/gmond.conf",
+      owner   => root,
+      group   => root,
+      mode    => 644,
+      require => Package["ganglia-monitor"];
   }
 
 }
