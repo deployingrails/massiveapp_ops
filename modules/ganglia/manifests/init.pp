@@ -23,7 +23,13 @@ class ganglia {
       owner   => root,
       group   => root,
       mode    => 644,
+      notify  => Service["ganglia-monitor"],
       require => Package["ganglia-monitor"];
+  }
+
+  service {
+    "ganglia-monitor":
+      hasrestart => true
   }
 
 }
