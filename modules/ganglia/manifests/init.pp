@@ -39,7 +39,7 @@ class ganglia {
 
   cron {
     "ganglia_mysql_stats":
-      user    => root,
+      user    => vagrant,
       minute  => "*",
       command => "/etc/ganglia/gmetric/ganglia_mysql_stats.pl",
       require => File["/etc/ganglia/gmetric/ganglia_mysql_stats.pl"]
