@@ -1,7 +1,9 @@
 #!/usr/bin/env ruby
 
 def recently_created_record_count
-  `mysql -uroot -proot --silent --skip-column-names massiveapp --execute "select count(id) from accounts where created_at > (now() - interval 1 hour)"`.strip.to_i
+  cmd = 'mysql -uroot -proot --silent --skip-column-names massiveapp --execute '
+  cmd += '"select count(id) from accounts where created_at > (now() - interval 1 hour)"'
+  `#{cmd}`.strip.to_i
 end
 
 def publish(count)
