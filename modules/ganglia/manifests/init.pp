@@ -34,6 +34,12 @@ class ganglia {
       owner   => root,
       group   => root,
       mode    => 755,
+      require => File["/etc/ganglia/gmetric"];
+    "/etc/ganglia/gmetric/gmetric_accounts.rb":
+      source  => "puppet:///modules/ganglia/gmetric/gmetric_accounts.rb",
+      owner   => root,
+      group   => root,
+      mode    => 755,
       require => File["/etc/ganglia/gmetric"]
   }
 
@@ -42,7 +48,12 @@ class ganglia {
       user    => vagrant,
       minute  => "*",
       command => "/etc/ganglia/gmetric/ganglia_mysql_stats.pl",
-      require => File["/etc/ganglia/gmetric/ganglia_mysql_stats.pl"]
+      require => File["/etc/ganglia/gmetric/ganglia_mysql_stats.pl"];
+    "gmetric_accounts":
+      user    => vagrant,
+      minute  => "*",
+      command => "/etc/ganglia/gmetric/gmetric_accounts.rb",
+      require => File["/etc/ganglia/gmetric/gmetric_accounts.rb"]
   }
 
   service {
