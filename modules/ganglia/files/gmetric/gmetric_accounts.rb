@@ -5,7 +5,7 @@ def recently_created_record_count
 end
 
 def publish(count)
-  system("gmetric --name 'accounts' --value #{count} --type uint8")
+  system("gmetric --name 'accounts' --value #{count} --type uint16")
 end
 
 publish recently_created_record_count
