@@ -1,3 +1,4 @@
+#test
 namespace :puppet do
   desc "Validate puppet manifests"
   task :validate do
