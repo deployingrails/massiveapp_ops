@@ -7,7 +7,8 @@ node "basenode" {
 
 node "vagrantup" {
   include apache
+  include ganglia
+  include massiveapp
   include memcached
   include nagios::server
-  include ganglia
 }
