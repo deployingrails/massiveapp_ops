@@ -11,7 +11,7 @@ class nagios::server {
       ensure  => directory,
       owner   => nagios,
       group   => nagios,
-      mode    => 0644,
+      mode    => 644,
       recurse => true,
       notify  => Service["nagios3"],
       require => Package["nagios3"];

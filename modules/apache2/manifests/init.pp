@@ -1,4 +1,4 @@
-class apache {
+class apache2 {
 
   package {
     "apache2":
@@ -7,7 +7,7 @@ class apache {
 
   file {
     "/etc/apache2/apache2.conf":
-      source  => "puppet:///modules/apache/apache2.conf",
+      source  => "puppet:///modules/apache2/apache2.conf",
       owner   => root,
       group   => root,
       notify  => Service["apache2"],
