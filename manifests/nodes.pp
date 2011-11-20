@@ -11,6 +11,7 @@ node "app" {
   include memcached
   include mysql
   include passenger
+  include nagios::client
 }
 
 node "nagios" {

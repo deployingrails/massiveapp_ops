@@ -1,7 +1,7 @@
 class nagios::server {
 
   package {
-    "nagios3":
+    ["nagios3", "nagios-nrpe-plugin"]:
       ensure => present
   }
 
