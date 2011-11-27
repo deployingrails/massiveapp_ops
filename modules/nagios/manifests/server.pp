@@ -35,11 +35,6 @@ class nagios::server {
       group   => nagios,
       mode    => 644,
       notify  => Service["nagios3"];
-   "/usr/lib/nagios/plugins/check_recent_accounts":
-      source  => "puppet:///modules/nagios/plugins/check_recent_accounts",
-      owner   => nagios,
-      group   => nagios,
-      mode    => 755;
     "/var/lib/nagios3/rw":
       ensure  => directory,
       owner   => nagios,

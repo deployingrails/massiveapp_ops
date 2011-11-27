@@ -12,6 +12,11 @@ class nagios::client {
       group   => root,
       mode    => 644,
       source  => "puppet:///modules/nagios/nrpe.cfg";
+    "/usr/lib/nagios/plugins/check_recent_accounts":
+      source  => "puppet:///modules/nagios/plugins/check_recent_accounts",
+      owner   => nagios,
+      group   => nagios,
+      mode    => 755;
    "/usr/lib/nagios/plugins/check_passenger":      
       source  => "puppet:///modules/nagios/plugins/check_passenger",
       owner   => nagios,
