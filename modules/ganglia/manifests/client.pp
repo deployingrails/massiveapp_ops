@@ -7,7 +7,7 @@ class ganglia::client {
 
   file {
     "/etc/ganglia/gmond.conf":
-      source  => "puppet:///modules/ganglia/gmond.conf",
+      source  => "puppet:///modules/ganglia/gmond_client.conf",
       owner   => root,
       group   => root,
       mode    => 644,
