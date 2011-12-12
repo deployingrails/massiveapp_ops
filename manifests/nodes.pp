@@ -3,9 +3,10 @@ node "basenode" {
     ["lsof"]:
       ensure => installed
   }
+  include ssh
 }
 
-node "app" {
+node "app" inherits basenode {
   include apache2
   include massiveapp
   include memcached
@@ -15,12 +16,12 @@ node "app" {
   include ganglia::client
 }
 
-node "nagios" {
+node "nagios" inherits basenode {
   include apache2
   include nagios::server
 }
 
-node "ganglia" {
+node "ganglia" inherits basenode {
   include apache2
   include ganglia::server
 }
