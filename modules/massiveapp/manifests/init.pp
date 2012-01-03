@@ -1,12 +1,23 @@
 class massiveapp {
-  
-  $current_path = "/home/massiveapp/current"
-
   file {
-    "/etc/logrotate.d/massiveapp.conf":
-      owner   => root,
-      group   => root,
-      mode    => 755,
-      content => template("massiveapp/massiveapp.logrotate.conf.erb")
+    ["/var/massiveapp/",
+     "/var/massiveapp/shared/",
+     "/var/massiveapp/shared/config/"]:
+      ensure => directory,
+      owner  => vagrant,
+      group  => vagrant,
+      mode   => 755
+  }
+  file {
+    "/var/massiveapp/shared/config/database.yml":
+      ensure  => present,
+      owner   => vagrant,
+      group   => vagrant,
+      mode    => 600,
+      source  => "puppet:///modules/massiveapp/database.yml"
+  }
+  package {
+    "bundler":
+      provider => gem
   }
 }
