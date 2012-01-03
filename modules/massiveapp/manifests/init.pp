@@ -6,7 +6,7 @@ class massiveapp {
       ensure => directory,
       owner  => vagrant,
       group  => vagrant,
-      mode   => 755
+      mode   => 775
   }
   file {
     "/var/massiveapp/shared/config/database.yml":
