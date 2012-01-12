@@ -24,7 +24,11 @@ class mysql {
     "mysql_password":
       unless  => "mysqladmin -uroot -proot status",
       command => "mysqladmin -uroot password root",
-      require => Service[mysql]
+      require => Service[mysql];
+    "massiveapp_db":
+      unless  => "mysql -uroot -proot massiveapp_production",
+      command => "mysql -uroot -proot -e 'create database massiveapp_production'",
+      require => Exec["mysql_password"]
   }
 
 }
