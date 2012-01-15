@@ -13,7 +13,13 @@ class apache2 {
       notify  => Service["apache2"],
       require => Package["apache2"];
     "/etc/logrotate.d/apache2":
-      ensure  => absent
+      ensure  => absent;
+    "/etc/apache2/conf.d/massiveapp.conf":
+      source  => "puppet:///modules/apache2/massiveapp.conf",
+      owner   => root,
+      group   => root,
+      notify  => Service["apache2"],
+      require => Package["apache2"];
   }
 
   service {
