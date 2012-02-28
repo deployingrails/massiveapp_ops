@@ -1,1 +1,1 @@
-rvm use --create ruby-1.9.2-p180@massiveapp_ops
+rvm use --create ruby-1.9.3-p125@massiveapp_ops
