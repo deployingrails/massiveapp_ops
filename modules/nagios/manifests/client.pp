@@ -3,7 +3,7 @@ class nagios::client {
   package {
     ["nagios-nrpe-server","nagios-plugins"]:
       ensure => present,
-      before => File["/etc/nagios/nrpe.cfg"]
+      before => [File["/etc/nagios/nrpe.cfg"],File["/usr/lib/nagios/plugins/check_recent_accounts"],File["/usr/lib/nagios/plugins/check_passenger"]]
   }
 
   file {
