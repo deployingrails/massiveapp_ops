@@ -1,1 +1,13 @@
 Puppet modules for "Deploying Rails".
+
+Steps to recreate without_ganglia:
+
+git co master
+git br -D without_ganglia
+git push origin :without_ganglia
+git co -b without_ganglia
+git rm -r modules/ganglia
+# manually remove ganglia stuff from manifests/nodes.pp
+git add .
+git ci -m "Removing ganglia"
+git push origin without_ganglia
