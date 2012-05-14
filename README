@@ -1,7 +1,6 @@
 Puppet modules for "Deploying Rails".
 
 Steps to recreate without_ganglia:
-
 git co master
 git br -D without_ganglia
 git push origin :without_ganglia
@@ -11,3 +10,14 @@ git rm -r modules/ganglia
 git add .
 git ci -m "Removing ganglia"
 git push origin without_ganglia
+
+Steps to recreate without_nagios:
+git co master
+git br -D without_nagios
+git push origin :without_nagios
+git co -b without_nagios
+git rm -r modules/nagios
+# manually remove nagios stuff from manifests/nodes.pp
+git add .
+git ci -m "Removing nagios"
+git push origin without_nagios
