@@ -13,15 +13,9 @@ node "app" inherits basenode {
   include mysql
   include passenger
   include nagios::client
-  include ganglia::client
 }
 
 node "nagios" inherits basenode {
   include apache2
   include nagios::server
-}
-
-node "ganglia" inherits basenode {
-  include apache2
-  include ganglia::server
 }
