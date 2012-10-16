@@ -6,6 +6,8 @@ class apache2 {
   }
 
   file {
+    "/etc/apache2/sites-enabled/000-default":
+      ensure => absent;
     "/etc/apache2/apache2.conf":
       source  => "puppet:///modules/apache2/apache2.conf",
       owner   => root,
